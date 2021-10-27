@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Jobs\SendMail;
 
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\SalesController;
 |
 */
 
- Route::get('/', function () {
+ Route::get('/sdsd', function () {
 //     $user_id = User::findOrFail(2);
 //     // ProcessPodcast::dispatch($podcast)
 //     // ->delay(now()->addMinutes(10));
@@ -35,13 +36,13 @@ use App\Http\Controllers\SalesController;
  });
 
 Route::get('datatype','SalesCsvController@uploadData');
-
-
-
 Route::get('/upload', [SalesController::class, 'index']);
+
 Route::post('/upload',[SalesController::class, 'upload'])->name('upload');
 Route::get('/batch', [SalesController::class, 'batch']);
+
 Route::get('/batch/in-progress', [SalesController::class, 'batchInProgress']);
+Route::get('/',[UserController::class, 'index']);
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');

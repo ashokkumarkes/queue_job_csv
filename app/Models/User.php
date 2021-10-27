@@ -58,4 +58,19 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getAll()
+    {
+        return static::all();
+    }
+
+    public function findUser($id)
+    {
+        return static::find($id);
+    }
+
+    public function deleteUser($id)
+    {
+        return static::find($id)->delete();
+    }
 }

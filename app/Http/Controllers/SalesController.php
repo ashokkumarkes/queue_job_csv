@@ -24,7 +24,7 @@ class SalesController extends Controller
             $batch  = Bus::batch([])->dispatch();
             foreach ($chunks as $key => $chunk) {
                 $data = array_map('str_getcsv', $chunk);
-                if ($key === 0) {
+                if ($key === 0){
                     $header = $data[0];
                     unset($data[0]);
                 }
